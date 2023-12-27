@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Keyboard</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      background-color: #1C1625;
+      color: white;
+    }
+
+    #keyboard {
+      display: grid;
+      grid-template-columns: repeat(14, 1fr);
+      gap: 5px;
+    }
+
+    button {
+      width: 50px;
+      height: 50px;
+      font-size: 14px;
+      cursor: pointer;
+      background-color: #2E364C;
+      border: 1px solid #888;
+      border-radius: 5px;
+      color: white;
+      transition: background-color 0.3s;
+    }
+
+    button:hover {
+      background-color: #4A8295; 
+    }
+  </style>
+</head>
+<body>
+
+<div id="keyboard"></div>
+
+<script>
+  const keyboardContainer = document.getElementById('keyboard');
+  const keyboardLayout = [
+    '1', '2', '3', '4', '5', '6', '7', '8', '9', '0',
+    'q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p',
+    'a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l', ';',
+    'z', 'x', 'c', 'v', 'b', 'n', 'm', ',', '.', '/',
+    'Ctrl', 'Alt', 'Space', 'Alt', 'Ctrl', 
+  ];
+
+  keyboardLayout.forEach(key => {
+    const button = document.createElement('button');
+    button.textContent = key;
+    button.addEventListener('click', () => onKeyPress(key));
+    keyboardContainer.appendChild(button);
+  });
+
+  function onKeyPress(key) {
+    console.log(`Key pressed: ${key}`);
+  }
+</script>
+
+</body>
+</html>
